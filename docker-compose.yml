@@ -1,0 +1,43 @@
+version: '3'
+services:
+  db:
+     image: mysql:5.6
+     command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci --init-connect='SET NAMES UTF8;' 
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: admin
+       MYSQL_DATABASE: lportal
+       MYSQL_USER: carlos
+       MYSQL_PASSWORD: admin
+     ports:
+      - "13306:3306"
+  node1liferaydxp:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "18080:8080"
+      - "18000:8000"
+      - "11234:1234"
+      - "17800:7800"
+      #- "23301-23351"
+    volumes:
+       - ./data/document_library:/opt/liferay/liferay-dxp-digital-enterprise-7.0.10.11-sp11/data/document_library
+    external_links:
+      - node2liferaydxp:node2
+      - db:mysql
+  node2liferaydxp:
+    volumes:
+       - ./data/document_library:/opt/liferay/liferay-dxp-digital-enterprise-7.0.10.11-sp11/data/document_library
+    #image: liferaydxp
+    build:
+      context: .
+      dockerfile: Dockerfile2
+    ports:
+      - "28080:8080"
+      - "28000:8000"
+      - "21234:1234"
+      - "27800:7800"
+    external_links:
+      - node1liferaydxp:node1
+      - db:mysql
