@@ -2,10 +2,10 @@
 
 
 
-- First make sure you have the license file and the bundle zipped file in your root folder and that they have the correct names
+- First make sure you have the license file ( has to be named dxpcluster.xml ) and the bundle zipped file ( has to be named liferay-dxp-digital-enterprise-tomcat-7.0.10.11-sp11-20190506123513875.zip ) in your root folder
 - start both nodes with "docker-compose up"
 - ./copyLicense.sh (if it hasn't been copied; it should have been automatically copied)
-- connect to both nodes, start node one, see that it works, and then start node 2
+- connect to both nodes, restart tomcat 1 ( restartServer1.sh ), see that it works, and then restart node 2 ( restartServer2.sh )
 
 
 
