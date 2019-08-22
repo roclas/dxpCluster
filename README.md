@@ -1,6 +1,7 @@
-# Please read first
+This git project has different branches for different dxp versions, please, check for which DXP version you want to build your cluster
 
 
+# Read first
 
 - First make sure you have the license file ( has to be named dxpcluster.xml ) and the bundle zipped file ( has to be named liferay-dxp-digital-enterprise-tomcat-7.0.10.11-sp11-20190506123513875.zip ) in your root folder
 - Start both nodes with "docker-compose up"
