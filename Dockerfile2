@@ -34,9 +34,9 @@ ENV PATH $PATH:$JAVA_HOME/bin
 ENV CLASSPATH $JAVA_HOME/lib/tools.jar
 ENV MANPATH $JAVA_HOME/man
 
-ENV zipfile liferay-dxp-digital-enterprise-tomcat-7.0.10.11-sp11-20190506123513875.zip
-ENV liferayhome /opt/liferay/liferay-dxp-digital-enterprise-7.0.10.11-sp11
-ENV tomcathome ${liferayhome}/tomcat-8.0.32
+ENV zipfile liferay-dxp-tomcat-7.1.10.2-sp2-20190422172027516.zip
+ENV liferayhome /opt/liferay/liferay-dxp-7.1.10.2-sp2
+ENV tomcathome ${liferayhome}/tomcat-9.0.6
 
 
 # jdk7 is the default jdk
@@ -66,6 +66,6 @@ COPY portal-ext.properties $liferayhome/
 RUN chmod +x $tomcathome/bin/entrypoint.sh
  
  
-ENTRYPOINT ["/opt/liferay/liferay-dxp-digital-enterprise-7.0.10.11-sp11/tomcat-8.0.32/bin/entrypoint.sh"]
+ENTRYPOINT ["/opt/liferay/liferay-dxp-7.1.10.2-sp2/tomcat-9.0.6/bin/entrypoint.sh"]
  
 CMD ["bash"]

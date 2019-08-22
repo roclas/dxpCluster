@@ -22,13 +22,13 @@ services:
       - "17800:7800"
       #- "23301-23351"
     volumes:
-       - ./data/document_library:/opt/liferay/liferay-dxp-digital-enterprise-7.0.10.11-sp11/data/document_library
+       - ./data/document_library:/opt/liferay/liferay-dxp-7.1.10.2-sp2/data/document_library
     external_links:
       - node2liferaydxp:node2
       - db:mysql
   node2liferaydxp:
     volumes:
-       - ./data/document_library:/opt/liferay/liferay-dxp-digital-enterprise-7.0.10.11-sp11/data/document_library
+       - ./data/document_library:/opt/liferay/liferay-dxp-7.1.10.2-sp2/data/document_library
     #image: liferaydxp
     build:
       context: .
